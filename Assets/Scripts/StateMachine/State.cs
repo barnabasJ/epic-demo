@@ -1,9 +1,10 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace StateMachine
 {
-    public abstract class State<T> where T :struct, IConvertible
+    public abstract class State<T> where T : struct, IConvertible
     {
         private GameObject gameObject;
 
@@ -12,6 +13,6 @@ namespace StateMachine
             this.gameObject = gameObject;
         }
 
-       public abstract T act();
+        public abstract T act();
     }
 }

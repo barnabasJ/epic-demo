@@ -4,13 +4,17 @@ using Event = UnityEngine.Event;
 
 namespace Enemy
 {
-    public class AttackState : State<EnemyEvents>
+    public class AttackState : State<EnemyEvent>
     {
-        public AttackState(GameObject gameObject) : base(gameObject)
+        private EnemyController controller;
+
+        public AttackState(GameObject gameObject
+            , EnemyController enemyController) : base(gameObject)
         {
+            this.controller = enemyController;
         }
 
-        public override EnemyEvents act()
+        public override EnemyEvent act()
         {
             throw new System.NotImplementedException();
         }
