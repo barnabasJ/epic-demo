@@ -31,11 +31,6 @@ namespace Enemy
         public float attackSpeed;
         public float attackDuration;
 
-        private void Awake()
-        {
-            this.player = GameObject.FindWithTag("Player");
-        }
-
         // Start is called before the first frame update
         void Start()
         {

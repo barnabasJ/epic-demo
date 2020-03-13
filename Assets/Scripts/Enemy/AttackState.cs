@@ -39,11 +39,16 @@ namespace Enemy
             }
             else
             {
-                coolDown = +Time.deltaTime;
+                coolDown -= Time.deltaTime;
             }
 
             attackDuration -= Time.deltaTime;
             return EnemyEvent.KEEP_STATE;
+        }
+
+        public override void onStateExit()
+        {
+            controller.agent.isStopped = false;
         }
 
         private AudioSource getRandomAudio()
