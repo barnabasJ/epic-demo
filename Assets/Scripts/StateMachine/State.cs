@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace StateMachine
@@ -12,6 +13,6 @@ namespace StateMachine
             this.gameObject = gameObject;
         }
 
-       public abstract T act();
+       public abstract EnemyEvent? act();
     }
 }
