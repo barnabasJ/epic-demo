@@ -1,22 +1,54 @@
 using StateMachine;
 using UnityEngine;
-using Event = UnityEngine.Event;
 
 namespace Enemy
 {
     public class AttackState : State<EnemyEvent>
     {
-        private EnemyController controller;
+        private float attackDuration;
+        private readonly float attackSpeed;
+        private readonly AudioSource[] audioSources;
+        private readonly EnemyController controller;
+        private float coolDown;
 
         public AttackState(GameObject gameObject
             , EnemyController enemyController) : base(gameObject)
         {
-            this.controller = enemyController;
+            controller = enemyController;
+            audioSources = gameObject.GetComponents<AudioSource>();
+            attackSpeed = controller.attackSpeed;
+            attackDuration = controller.attackDuration;
+        }
+
+        public override void onStateEnter()
+        {
+            controller.agent.Stop();
+            attackDuration = controller.attackDuration;
+            coolDown = 0;
         }
 
         public override EnemyEvent act()
         {
-            throw new System.NotImplementedException();
+            if (attackDuration <= 0)
+                return EnemyEvent.PATROL;
+
+            if (coolDown <= 0)
+            {
+                getRandomAudio().Play();
+                coolDown = attackSpeed;
+            }
+            else
+            {
+                coolDown = +Time.deltaTime;
+            }
+
+            attackDuration -= Time.deltaTime;
+            return EnemyEvent.KEEP_STATE;
+        }
+
+        private AudioSource getRandomAudio()
+        {
+            return audioSources[Random.Range(0, audioSources.Length)];
         }
     }
 }
