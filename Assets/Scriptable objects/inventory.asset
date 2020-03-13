@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a98fe2a11685f4db30ba70581a2d7a, type: 3}
   m_Name: inventory
   m_EditorClassIdentifier: 
-  maxAmount: 0
-  currentAmount: 0
+  maxAmount: 6
