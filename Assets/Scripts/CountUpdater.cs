@@ -6,7 +6,8 @@ public class CountUpdater : MonoBehaviour
 {
     public static CountUpdater instance;
     public Text itemCount;
-    
+    public int currentAmount = 0;
+
     public Inventory inventory;
     // Call this event by using CountUpdater.instance.pickupEvent.Invoke()
     public UnityEvent pickupEvent;
@@ -24,12 +25,12 @@ public class CountUpdater : MonoBehaviour
 
     void Update()
     {
-        itemCount.text = inventory.currentAmount.ToString();
+        itemCount.text = currentAmount.ToString();
     }
 
     void UpdatePickupAmount()
     {
-        if (inventory.currentAmount < inventory.maxAmount)
-            inventory.currentAmount += 1;
+        if (currentAmount < inventory.maxAmount)
+            currentAmount += 1;
     }
 }
