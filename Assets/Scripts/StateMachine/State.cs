@@ -6,7 +6,7 @@ namespace StateMachine
 {
     public abstract class State<T> where T : struct, IConvertible
     {
-        private GameObject gameObject;
+        protected GameObject gameObject;
 
         public State(GameObject gameObject)
         {

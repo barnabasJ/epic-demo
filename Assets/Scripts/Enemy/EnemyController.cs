@@ -28,6 +28,8 @@ namespace Enemy
         public float attackRange;
         public float patrolBreakTime;
         public float followTime;
+        public float attackTime;
+        public float attackDuration;
 
         private void Awake()
         {
