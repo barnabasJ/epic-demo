@@ -9,12 +9,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder.001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: ac03f7f9b998c324bb3881ef4674916d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
