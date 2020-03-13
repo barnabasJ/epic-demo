@@ -10,15 +10,13 @@ namespace Enemy
         private readonly AudioSource[] audioSources;
         private readonly EnemyController controller;
         private float coolDown;
-        private GameObject player;
 
         public AttackState(GameObject gameObject
             , EnemyController enemyController) : base(gameObject)
         {
             controller = enemyController;
-            player = controller.player;
-            audioSources = this.gameObject.GetComponents<AudioSource>();
-            attackSpeed = controller.attackTime;
+            audioSources = gameObject.GetComponents<AudioSource>();
+            attackSpeed = controller.attackSpeed;
             attackDuration = controller.attackDuration;
         }
 
@@ -26,6 +24,7 @@ namespace Enemy
         {
             controller.agent.Stop();
             attackDuration = controller.attackDuration;
+            coolDown = 0;
         }
 
         public override EnemyEvent act()
