@@ -29,7 +29,8 @@ namespace Enemy
                     controller.patrolPointTolerance)
                 {
                     wait = controller.patrolBreakTime;
-                    nextStop = route[nextStopIndex++];
+                    nextStop = route[nextStopIndex];
+                    nextStopIndex = (nextStopIndex + 1) % route.Count;
                 }
                 else
                     agent.SetDestination(nextStop.transform.position);
@@ -45,6 +46,7 @@ namespace Enemy
             this.controller = controller;
             this.route = controller.patrolRoute;
             this.player = controller.player;
+            this.agent = controller.agent;
             this.nextStopIndex = 0;
             this.nextStop = route[nextStopIndex];
         }
