@@ -19,7 +19,7 @@ namespace StateMachine
 
         public abstract T act();
 
-        public void onStateExit()
+        public virtual void onStateExit()
         {
         }
     }
