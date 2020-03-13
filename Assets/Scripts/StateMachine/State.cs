@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StateMachine
 {
-    public abstract class State<T> where T :struct, IConvertible
+    public abstract class State<T> where T : struct, IConvertible
     {
         private GameObject gameObject;
 
@@ -13,6 +13,6 @@ namespace StateMachine
             this.gameObject = gameObject;
         }
 
-       public abstract EnemyEvent? act();
+        public abstract T act();
     }
 }

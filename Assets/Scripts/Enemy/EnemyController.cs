@@ -11,6 +11,7 @@ namespace Enemy
     {
         PATROL,
         ATTACK,
+        KEEP_STATE,
     }
 
     public class EnemyController : MonoBehaviour
@@ -38,7 +39,7 @@ namespace Enemy
                 {EnemyEvent.PATROL, new PatrolState(gameObject, this)},
                 {EnemyEvent.ATTACK, new AttackState(gameObject, this)}
             };
-            stateMachine = new StateMachine<EnemyEvent>(stateMap);
+            stateMachine = new StateMachine<EnemyEvent>(stateMap, EnemyEvent.KEEP_STATE);
             stateMachine.transition(EnemyEvent.PATROL);
         }
 
@@ -46,8 +47,7 @@ namespace Enemy
         void Update()
         {
             var e = stateMachine.act();
-            if (e != null)
-                stateMachine.transition(e);
+            stateMachine.transition(e);
         }
     }
 }

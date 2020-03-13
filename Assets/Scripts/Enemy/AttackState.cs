@@ -14,7 +14,7 @@ namespace Enemy
             this.controller = enemyController;
         }
 
-        public override EnemyEvent? act()
+        public override EnemyEvent act()
         {
             throw new System.NotImplementedException();
         }

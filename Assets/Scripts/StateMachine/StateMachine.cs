@@ -8,10 +8,12 @@ namespace StateMachine
     {
         private State<T> currentState;
         private Dictionary<T, State<T>> stateMap;
+        private T keepState;
 
-        public StateMachine(Dictionary<T, State<T>> stateMap)
+        public StateMachine(Dictionary<T, State<T>> stateMap, T keepState)
         {
             this.stateMap = stateMap;
+            this.keepState = keepState;
         }
 
         public T act()
@@ -21,6 +23,8 @@ namespace StateMachine
 
         public void transition(T e)
         {
+            if (e.Equals(keepState))
+                return;
             if (stateMap.ContainsKey(e))
                 currentState = stateMap[e];
             else

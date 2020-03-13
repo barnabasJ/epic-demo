@@ -18,7 +18,7 @@ namespace Enemy
         private int nextStopIndex;
         private float wait;
 
-        public override EnemyEvent? act()
+        public override EnemyEvent act()
         {
             if (Vector3.Distance(controller.transform.position, player.transform.position) <
                 controller.attackRange)
@@ -36,7 +36,7 @@ namespace Enemy
             else
                 wait -= Time.deltaTime;
 
-            return null;
+            return EnemyEvent.KEEP_STATE;
         }
 
         public PatrolState(GameObject gameObject, EnemyController controller
