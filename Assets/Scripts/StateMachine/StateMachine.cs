@@ -26,7 +26,13 @@ namespace StateMachine
             if (e.Equals(keepState))
                 return;
             if (stateMap.ContainsKey(e))
+            {
+                currentState?.onStateExit();
+                Debug.Log("Exiting: " + currentState);
                 currentState = stateMap[e];
+                currentState.onStateEnter();
+                Debug.Log("Entering: " + currentState);
+            }
             else
                 throw new ArgumentException("There is no tranisiton for this event");
         }
