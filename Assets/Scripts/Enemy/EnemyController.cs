@@ -17,8 +17,8 @@ namespace Enemy
         {
             var stateMap = new Dictionary<EnemyEvents, State<EnemyEvents>>
             {
-                {EnemyEvents.PATROL, new PatrolState()},
-                {EnemyEvents.ATTACK, new AttackState()}
+                {EnemyEvents.PATROL, new PatrolState(gameObject)},
+                {EnemyEvents.ATTACK, new AttackState(gameObject)}
             };
             this.stateMachine = new StateMachine<EnemyEvents>(stateMap);
         }

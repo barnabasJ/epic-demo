@@ -6,7 +6,11 @@ namespace Enemy
 {
     public class AttackState : State<EnemyEvents>
     {
-        public EnemyEvents act(GameObject o)
+        public AttackState(GameObject gameObject) : base(gameObject)
+        {
+        }
+
+        public override EnemyEvents act()
         {
             throw new System.NotImplementedException();
         }

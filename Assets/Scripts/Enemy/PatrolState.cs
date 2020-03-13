@@ -7,9 +7,13 @@ namespace Enemy
 {
     public class PatrolState : State<EnemyEvents>
     {
-        public EnemyEvents act(GameObject o)
+        public override EnemyEvents act()
         {
             throw new NotImplementedException();
+        }
+
+        public PatrolState(GameObject gameObject) : base(gameObject)
+        {
         }
     }
 }

@@ -3,8 +3,15 @@ using UnityEngine;
 
 namespace StateMachine
 {
-    public interface State<T> where T :struct, IConvertible
+    public abstract class State<T> where T :struct, IConvertible
     {
-        T act(GameObject o);
+        private GameObject gameObject;
+
+        public State(GameObject gameObject)
+        {
+            this.gameObject = gameObject;
+        }
+
+       public abstract T act();
     }
 }

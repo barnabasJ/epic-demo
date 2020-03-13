@@ -14,9 +14,9 @@ namespace StateMachine
             this.stateMap = stateMap;
         }
 
-        public T act(GameObject o)
+        public T act()
         {
-            return currentState.act(o);
+            return currentState.act();
         }
 
         public void transition(T e)
