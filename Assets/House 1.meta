@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/New Terrain.asset.meta
-guid: eafcf1b168352654b88cc39466c42ae4
-NativeFormatImporter:
-=======
-guid: d3a5a091e52dd45aba09bbb8aed87f5d
+guid: c8612c0f66f0f564eb4d954ac6ec8fa3
 folderAsset: yes
 DefaultImporter:
->>>>>>> origin/Buildings:Assets/House 1.meta
   externalObjects: {}
-  mainObjectFileID: 15600000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
