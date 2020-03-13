@@ -21,8 +21,8 @@ namespace Enemy
         public override EnemyEvent act()
         {
             if (Vector3.Distance(controller.transform.position, player.transform.position) <
-                controller.attackRange)
-                return EnemyEvent.ATTACK;
+                controller.followRange)
+                return EnemyEvent.FOLLOW;
 
             if (wait <= 0)
                 if (Vector3.Distance(nextStop.transform.position, controller.transform.position) <

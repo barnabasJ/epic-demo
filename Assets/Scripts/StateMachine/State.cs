@@ -13,6 +13,14 @@ namespace StateMachine
             this.gameObject = gameObject;
         }
 
+        public virtual void onStateEnter()
+        {
+        }
+
         public abstract T act();
+
+        public void onStateExit()
+        {
+        }
     }
 }
