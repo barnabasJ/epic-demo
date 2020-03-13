@@ -39,7 +39,7 @@ namespace Enemy
             }
             else
             {
-                coolDown = +Time.deltaTime;
+                coolDown -= Time.deltaTime;
             }
 
             attackDuration -= Time.deltaTime;
