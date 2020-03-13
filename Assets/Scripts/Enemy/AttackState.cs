@@ -46,6 +46,11 @@ namespace Enemy
             return EnemyEvent.KEEP_STATE;
         }
 
+        public override void onStateExit()
+        {
+            controller.agent.isStopped = false;
+        }
+
         private AudioSource getRandomAudio()
         {
             return audioSources[Random.Range(0, audioSources.Length)];
